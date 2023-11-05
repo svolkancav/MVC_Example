@@ -1,0 +1,78 @@
+﻿@using _18_MVC_Example.Models.ViewModels;
+@model UpdateVMStudent
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Student.StudentId" />
+            <div class="form-group">
+                <label asp-for="Student.StudentFirstName" class="control-label"></label>
+                <input asp-for="Student.StudentFirstName" class="form-control" />
+                <span asp-validation-for="Student.StudentFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.StudentLastName" class="control-label"></label>
+                <input asp-for="Student.StudentLastName" class="form-control" />
+                <span asp-validation-for="Student.StudentLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.StudentNo" class="control-label"></label>
+                <input asp-for="Student.StudentNo" class="form-control" />
+                <span asp-validation-for="Student.StudentNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.StudentBirthday" class="control-label"></label>
+                <input asp-for="Student.StudentBirthday" class="form-control" />
+                <span asp-validation-for="Student.StudentBirthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.StudentClass" class="control-label"></label>
+                <input asp-for="Student.StudentClass" class="form-control" />
+                <span asp-validation-for="Student.StudentClass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.StudentAddress" class="control-label"></label>
+                <input asp-for="Student.StudentAddress" class="form-control" />
+                <span asp-validation-for="Student.StudentAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.StudentPhone" class="control-label"></label>
+                <input asp-for="Student.StudentPhone" class="form-control" />
+                <span asp-validation-for="Student.StudentPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.School" class="control-label"></label>
+                <select asp-for="Student.School" class="form-control">
+                    <option>Please Select...</option>
+                    @foreach (School item in Model.Schools)
+                    {
+                        <option value="@item.SchoolName">@item.SchoolName</option>
+                    }
+
+                    }
+                </select>
+                <span asp-validation-for="Student.School" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

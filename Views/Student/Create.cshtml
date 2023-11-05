@@ -1,0 +1,76 @@
+﻿@model _18_MVC_Example.Models.Student
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StudentFirstName" class="control-label"></label>
+                <input asp-for="StudentFirstName" class="form-control" />
+                <span asp-validation-for="StudentFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentLastName" class="control-label"></label>
+                <input asp-for="StudentLastName" class="form-control" />
+                <span asp-validation-for="StudentLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentNo" class="control-label"></label>
+                <input asp-for="StudentNo" class="form-control" />
+                <span asp-validation-for="StudentNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentBirthday" class="control-label"></label>
+                <input asp-for="StudentBirthday" class="form-control" />
+                <span asp-validation-for="StudentBirthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentClass" class="control-label"></label>
+                <input asp-for="StudentClass" class="form-control" />
+                <span asp-validation-for="StudentClass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentAddress" class="control-label"></label>
+                <input asp-for="StudentAddress" class="form-control" />
+                <span asp-validation-for="StudentAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentPhone" class="control-label"></label>
+                <input asp-for="StudentPhone" class="form-control" />
+                <span asp-validation-for="StudentPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="School" class="control-label"></label>
+                <select asp-for="School" class="form-control">
+                    <option>Please Select...</option>
+                    @foreach (School item in ViewBag.Schools)
+                    {
+                        <option value="@item.SchoolName">@item.SchoolName</option>
+                    }
+                        
+                    }
+                </select>
+                <span asp-validation-for="School" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
