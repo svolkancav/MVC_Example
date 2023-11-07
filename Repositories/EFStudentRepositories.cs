@@ -5,7 +5,7 @@ namespace _18_MVC_Example.Repositories
 {
     public class EFStudentRepositories : IStudentRepositories
     {
-
+        //Dependency Injection
         private readonly StudentDbContext _context;
 
         public EFStudentRepositories(StudentDbContext context)

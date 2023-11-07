@@ -12,5 +12,10 @@ namespace _18_MVC_Example.Models
         public string SchoolEmail { get; set; }
         public DateTime SchoolFoundingDate { get; set; }
         public List<Student> Students { get; set; }
+
+        public School() // yapmazsak object null error.
+        {
+            Students = new List<Student>();
+        }
     }
 }
